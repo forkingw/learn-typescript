@@ -19,3 +19,7 @@ export enum Mark {
     twelve = "Q",
     king = "K"
 }
+export enum JokerType {
+    big = "JO",
+    small = "jo"
+}
