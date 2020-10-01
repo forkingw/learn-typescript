@@ -1,51 +1,28 @@
-type Deck = NormalCard[]
-enum Color {
-    heart = "红桃",
-    spade = "黑桃",
-    club = "梅花",
-    diamond = "方块"
-}
-enum Mark {
-    A = "A",
-    two = "2",
-    three = "3",
-    four = "4",
-    five = "5",
-    six = "6",
-    senve = "7",
-    eight = "8",
-    nine = "9",
-    ten = "10",
-    eleven = "J",
-    twelve = "Q",
-    king = "K"
-}
-type NormalCard = {
-    color: Color,
-    mark: Mark
+import { prependListener } from "process";
+
+enum Permission {
+    Read = 1,
+    Write = 2,
+    Create = 4,
+    Delete = 8
 }
 
-function createDeck(): Deck {
-    const deck: Deck = []
-    const marks = Object.values(Mark)
-    const colors = Object.values(Color)
-    marks.forEach(m => {
-        colors.forEach(c => {
-            deck.push({
-                color: c,
-                mark: m
-            })
-        })
-    })
-    return deck
+// 组合权限
+
+let p:Permission = Permission.Read | Permission.Write;
+
+function hasPermission (target: Permission, per:Permission) {
+    return (target & per) === per;
 }
 
-function printDeck (deck:Deck) {
-    deck.forEach(card => {
-        let str = card.color + card.mark
-        console.log(str)
-    })
-}
+console.log(hasPermission(p, Permission.Create))
 
-const deck = createDeck()
-printDeck(deck)
+// 删除权限
+/**
+ * 0011
+ * ^
+ * 0010
+ * 0001
+ */
+p = p ^ Permission.Write
+console.log(hasPermission(p, Permission.Write))
