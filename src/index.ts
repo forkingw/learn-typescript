@@ -1,28 +1,14 @@
-import { prependListener } from "process";
+import sayHello, { name, sum } from "./myModule";
 
-enum Permission {
-    Read = 1,
-    Write = 2,
-    Create = 4,
-    Delete = 8
-}
+console.log(name);
+console.log(sum(3,4));
+sayHello()
 
-// 组合权限
+// import { readFileSync } from 'fs'
+// readFileSync('./')
 
-let p:Permission = Permission.Read | Permission.Write;
+// import * as fs from 'fs'
+// fs.readFileSync('./')
 
-function hasPermission (target: Permission, per:Permission) {
-    return (target & per) === per;
-}
-
-console.log(hasPermission(p, Permission.Create))
-
-// 删除权限
-/**
- * 0011
- * ^
- * 0010
- * 0001
- */
-p = p ^ Permission.Write
-console.log(hasPermission(p, Permission.Write))
+import fs from 'fs'
+fs.readFileSync('./')
