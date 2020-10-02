@@ -1,42 +1,24 @@
-// type callback<T> = (n: T, i: number) => boolean;
-// function filter<T>(arr: T[], callback: callback<T>): T[] {
-//     const newArr: T[] = [];
-//     arr.forEach((n, i) => {
-//         if (callback(n, i)) {
-//             newArr.push(n);
-//         }
-//     })
+interface hasNameProperty {
+    name: string
+}
 
 
-//     return newArr;
-// }
+/**
+ * 将某个对象的 name 属性的每个单词的首字母大写，然后将对象返回
+ */
+function nameToUpperCase<T extends hasNameProperty>(obj: T): T {
+    obj.name = obj.name
+        .split(" ")
+        .map(s => s[0].toUpperCase() + s.substr(1))
+        .join(" ")
+    return obj;
+}
 
-// const arr = [3, 4, 5, 6];
-// console.log(filter(arr, n => n % 2 !== 0))
+const o = {
+    name: "forrest wang",
+    age: 18,
+    hobby: "reading"
+}
 
-
-// interface callback<T> {
-//     (n: T, i: number): boolean
-// }
-// function filter<T>(arr: T[], callback: callback<T>): T[] {
-//     const newArr: T[] = [];
-//     arr.forEach((n, i) => {
-//         if (callback(n, i)) {
-//             newArr.push(n);
-//         }
-//     })
-
-//     return newArr;
-// }
-
-
-// import { ArrayHelper } from "./ArrayHelper";
-
-// const arr = [3, 4, 5, 6];
-// console.log(filter(arr, n => n % 2 !== 0))
-
-// const helper = new ArrayHelper([1,2,3])
-// helper.take(2)
-// helper.shuffle()
-
-// console.log(helper)
+const newo = nameToUpperCase(o);
+console.log(newo.name)
