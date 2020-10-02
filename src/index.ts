@@ -1,14 +1,42 @@
-function take<T>(arr: T[], n:number) {
-    if (n >= arr.length) {
-        return arr;
-    }
-    const newArr: T[] = [];
-    for (let i = 0; i < n; i++) {
-        newArr.push(arr[i]);
-    }
-    return newArr;
-}
+// type callback<T> = (n: T, i: number) => boolean;
+// function filter<T>(arr: T[], callback: callback<T>): T[] {
+//     const newArr: T[] = [];
+//     arr.forEach((n, i) => {
+//         if (callback(n, i)) {
+//             newArr.push(n);
+//         }
+//     })
 
-// const newArr = take<number>([1, 2, 4], 2)
-const newArr = take<object>([{},{},{}], 3)
-console.log(newArr);
+
+//     return newArr;
+// }
+
+// const arr = [3, 4, 5, 6];
+// console.log(filter(arr, n => n % 2 !== 0))
+
+
+// interface callback<T> {
+//     (n: T, i: number): boolean
+// }
+// function filter<T>(arr: T[], callback: callback<T>): T[] {
+//     const newArr: T[] = [];
+//     arr.forEach((n, i) => {
+//         if (callback(n, i)) {
+//             newArr.push(n);
+//         }
+//     })
+
+//     return newArr;
+// }
+
+
+// import { ArrayHelper } from "./ArrayHelper";
+
+// const arr = [3, 4, 5, 6];
+// console.log(filter(arr, n => n % 2 !== 0))
+
+// const helper = new ArrayHelper([1,2,3])
+// helper.take(2)
+// helper.shuffle()
+
+// console.log(helper)
