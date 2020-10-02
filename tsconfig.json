@@ -4,7 +4,12 @@
     "module": "CommonJS",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
     "lib": ["ES2016"],                            /* Specify library files to be included in the compilation. */
     "strictNullChecks": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "noEmitOnError": true,
+    "removeComments": true,
+    "moduleResolution": "node",
+    "noImplicitUseStrict": true,
+    "strictPropertyInitialization": true  
   },
   "include": ["./src"]
 }
