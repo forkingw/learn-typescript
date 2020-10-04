@@ -1,7 +1,13 @@
-# Dictionary
+# advanced-interface
 
-- 按照键，删除对应的键值对  ok
-- 循环每一个键值对  ok
-- 得到当前键值对的数量 ok
-- 判断某个键值是否存在  ok
-- 重新设置某个键对应的值，如果不存在则添加  ok
+接口用于约束类、对象、函数 是一个类型契约
+
+> 马戏团，has many animals, inclund lions,tigers, monkeys, dogs.  These animals have common feature: name, age, kind name.
+All Aniamal can sayHello. They have theieselves skill.
+skill can be changed throgh practice.
+
+skills:
+    fire cirle：single double 
+    blance: a briage walk line
+    samrt: calclate, dance
+
