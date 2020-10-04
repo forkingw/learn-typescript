@@ -20,3 +20,5 @@ function hasFireShow(ani: object): ani is IFireShow {
     return false;
 }
 ```
+
+## 接口可以继承类 !important

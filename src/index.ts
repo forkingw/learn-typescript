@@ -21,3 +21,24 @@ animals.forEach(a => {
         a.dancing();
     }
 })
+
+/**
+ * 接口可以继承类
+ */
+class A {
+    a1: string = "";
+    a2: string = "";
+}
+class B {
+    b1: number = 0;
+    b2: number = 1;
+}
+
+interface C extends A, B {}
+
+const c:C = {
+    a1: "1",
+    a2: "2",
+    b1: 1,
+    b2: 3
+}
