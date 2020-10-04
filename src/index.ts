@@ -1,22 +1,32 @@
-import { Dictionary } from "./Dictionary";
+export class Tank {
+    x:number = 0
+    y:number = 0
 
-const dic = new Dictionary<string, number>()
-dic.set("a", 1)
-dic.set("b", 2)
-dic.set("c", 33)
-dic.set("a", 111)
+    protected name: string="tank"
 
-dic.forEach((k, v) => {
-    console.log(`${k}: ${v}`)
-})
+    shoot() {
+        console.log("Take shoot")
+    }
+}
 
-console.log(dic.has("d"))
+export class PlayerTank extends Tank {
+    x:number = 20
+    y:number = 20
 
-console.log("before delete a")
-console.log(dic)
+    sayHello() {
+        console.log(this.name)
+    }
 
-console.log("after delete a")
-dic.delete("a")
-console.log(dic)
+    shoot() {
+        console.log("PlayerTank shoot")
+    }
+}
 
-console.log("dic's size:", dic.size)
+export class EnemyTank extends Tank {
+    shoot() {
+        console.log("EmenyTank shoot")
+    }
+}
+
+const p = new PlayerTank()
+console.log(p.x, p.y)
