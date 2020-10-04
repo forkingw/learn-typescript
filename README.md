@@ -11,3 +11,12 @@ skills:
     blance: a briage walk line
     samrt: calclate, dance
 
+## 类型保护函数
+```
+function hasFireShow(ani: object): ani is IFireShow {
+    if ((ani as IFireShow).singleFire && (ani as IFireShow).doubleFire) {
+        return true;
+    }
+    return false;
+}
+```
