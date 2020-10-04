@@ -5,7 +5,8 @@
     "lib": ["ES2016"],                            /* Specify library files to be included in the compilation. */
     "strictNullChecks": true,
     "outDir": "dist",
-    "strictPropertyInitialization": true
+    "strictPropertyInitialization": true,
+    "noImplicitAny": true
   },
   "include": ["./src"]
 }
