@@ -1,63 +1,54 @@
-abstract class Chess {
-    x: number = 0
-    y: number = 0
+// class User {
+//     static uesr: User[] = [];
+//     constructor(
+//         public loginId:string,
+//         public loginPwd: string,
+//         public name: string,
+//         public age: number
+//     ){ 
+//         User.uesr.push(this);
+//     }
 
-    abstract readonly name: string;
+//     static login(loginId: string, loginPwd: string): User | undefined {
+//         return undefined
+//     }
 
-    move(targetX:number, targetY:number):boolean {
-        console.log("边界检查")
-        console.log("是否有己方棋子")
-        if (this.rule(targetX, targetY)) {
-            this.rule(targetX, targetY)
-            return true;
+//     sayHello() {
+//         console.log(`大家好啊，我叫${this.name},今年${this.age}岁了，我的帐号是${this.loginId}`)
+//     }
+// }
+
+// new User("u1", "123", "wang", 12);
+// new User("u2", "123", "for", 14);
+// new User("u3", "123", "spring", 15);
+// new User("u4", "123", "nextjs", 16);
+
+// console.log(User.uesr)
+
+class Board {
+    width: number = 500;
+    heighht: number = 700;
+
+    init () {
+        console.log("初始化棋盘")
+    }
+
+    private constructor() {}
+
+
+    // static readonly singBoard = new Board();
+    private static _board?: Board;
+
+    static createBoard(): Board {
+        if (this._board) {
+            return this._board
         }
-        return false;
-
-    }
-    protected abstract rule (targetX:number, targetY:number):boolean;
-}
-
-class Horse extends Chess {
-    protected rule(targetX: number, targetY: number): boolean {
-        throw new Error("Method not implemented.");
-    }
-    move(targetX: number, targetY: number): boolean {
-        throw new Error("Method not implemented.");
-    }
-    readonly name: string = "马";
-    
-}
-
-class Solider extends Chess {
-    protected rule(targetX: number, targetY: number): boolean {
-        throw new Error("Method not implemented.");
-    }
-    move(targetX: number, targetY: number): boolean {
-        throw new Error("Method not implemented.");
-    }
-    readonly name: string;
-
-    constructor() {
-        super();
-        this.name = "炮";
-    }
-
-}
-
-class Cannon extends Chess {
-    protected rule(targetX: number, targetY: number): boolean {
-        throw new Error("Method not implemented.");
-    }
-    move(targetX: number, targetY: number): boolean {
-        throw new Error("Method not implemented.");
-    }
-    get name() {
-        return "兵";
+        this._board = new Board();
+        return this._board;
     }
 }
 
-const horse = new Horse()
-const solider = new Solider()
-const cannon = new Cannon()
+const b = Board.createBoard();
+const b2 = Board.createBoard();
 
-console.log(horse.name, solider.name, cannon.name);
+console.log(b === b2);
