@@ -6,7 +6,7 @@
     "strictNullChecks": true,
     "outDir": "dist",
     "strictPropertyInitialization": true,
-    "noImplicitAny": true
+    "noImplicitThis": true
   },
   "include": ["./src"]
 }
