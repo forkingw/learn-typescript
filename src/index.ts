@@ -1,44 +1,77 @@
-import { Animal, Dog, Lion, Monkey, Tiger } from "./animals";
-import { hasFireShow, hasWisdomShow } from "./interfaces";
+import { clearScreenDown } from "readline"
+import { createBrotliCompress } from "zlib"
 
-const animals: Animal[] = [
-    new Lion("王权富贵", 1),
-    new Tiger("东方月初", 12),
-    new Monkey("算算", 4),
-    new Dog("跳跳", 3)
-]
+type constructor = new (...args: any[]) => object
 
-// animals.forEach(a => a.sayHello());
+// function test(target: new (...args:any[]) => object) {
+// }
 
-animals.forEach(a => {
-    if (hasFireShow(a)) {
-        a.singleFire();
-        a.doubleFire();
-    }
+// function test(b: boolean) {
+//     console.log("one")
+//     return function (target: constructor){
+//     }
+// }
+// @test(true)
+// class A {
+//     constructor(public a: string, public b: number) {
+//     }
+// }
 
-    if (hasWisdomShow(a)) {
-        a.calculate();
-        a.dancing();
-    }
-})
+// const a = new A("a", 1);
 
-/**
- * 接口可以继承类
- */
-class A {
-    a1: string = "";
-    a2: string = "";
+// function d1 () {
+//     console.log("d1")
+//     return function (target: constructor) {
+//         console.log("decorator d1")
+//     }
+// }
+
+// function d2 () {
+//     console.log("d2")
+//     return function (target: constructor) {
+//         console.log("decorator d2")
+//     }
+// }
+
+// @d2()
+// @d1()
+// class B {
+// }
+
+// function c1() {
+//     console.log("one");
+//     return function () {
+//         console.log("two");
+//         return function () {
+//             console.log("two");
+//             return function (target: constructor) {
+//                 console.log(target)
+//             }
+//         }
+//     }
+// }
+
+// @c1()()()
+// class C {
+
+// }
+
+function d(target: any, key: string) {
 }
-class B {
-    b1: number = 0;
-    b2: number = 1;
+
+function enmumerable(target: any, key: string, descriptor: PropertyDescriptor) {
+    console.log(descriptor);
 }
 
-interface C extends A, B {}
+class D {
+    @d
+    prop1: string
 
-const c:C = {
-    a1: "1",
-    a2: "2",
-    b1: 1,
-    b2: 3
+    @d
+    prop2: string
+
+    @enmumerable
+    method1() {
+
+    }
 }

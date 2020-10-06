@@ -1,22 +1,14 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const animals_1 = require("./animals");
-const animals = [
-    new animals_1.Lion("王权富贵", 1),
-    new animals_1.Tiger("东方月初", 12),
-    new animals_1.Monkey("算算", 4),
-    new animals_1.Dog("跳跳", 3)
-];
-// animals.forEach(a => a.sayHello());
-function hasFireShow(ani) {
-    if (ani.singleFire && ani.doubleFire) {
-        return true;
-    }
-    return false;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+function test(target) {
+    console.log(target);
 }
-animals.forEach(a => {
-    if (hasFireShow(a)) {
-        a.singleFire();
-        a.doubleFire();
-    }
-});
+let A = class A {
+};
+A = __decorate([
+    test
+], A);

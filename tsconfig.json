@@ -4,8 +4,12 @@
     "module": "CommonJS",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
     "lib": ["ES2016"],                            /* Specify library files to be included in the compilation. */
     "strictNullChecks": true,
-    "outDir": "dist",
-    "strictPropertyInitialization": true
+    "outDir": "./dist",
+    // "strictPropertyInitialization": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true
   },
   "include": ["./src"]
 }
