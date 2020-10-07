@@ -1,77 +1,70 @@
-import { clearScreenDown } from "readline"
-import { createBrotliCompress } from "zlib"
+// const a:string = "sdfasdf";
 
-type constructor = new (...args: any[]) => object
+import { type } from "os"
 
-// function test(target: new (...args:any[]) => object) {
+// let b: typeof a = "dfasdf";
+
+// class User {
+//     loginId: string
+//     login: string
 // }
 
-// function test(b: boolean) {
-//     console.log("one")
-//     return function (target: constructor){
-//     }
-// }
-// @test(true)
-// class A {
-//     constructor(public a: string, public b: number) {
-//     }
+// const u = new User();
+// const u2 = u;
+
+// const A = User;
+
+// function createUser(cls: typeof User): User {
+//     return new cls()
 // }
 
-// const a = new A("a", 1);
+// const u = createUser(User)
 
-// function d1 () {
-//     console.log("d1")
-//     return function (target: constructor) {
-//         console.log("decorator d1")
-//     }
+// interface User {
+//     loginId: string
+//     loginpwd: string
+//     age: number
 // }
 
-// function d2 () {
-//     console.log("d2")
-//     return function (target: constructor) {
-//         console.log("decorator d2")
-//     }
+// function printUserProperty(obj: User, prop: keyof User) {
+//     console.log(obj[prop])
 // }
 
-// @d2()
-// @d1()
-// class B {
+// const u:User = {
+//     loginId: "sdf",
+//     loginpwd: "asdf",
+//     age: 18
 // }
 
-// function c1() {
-//     console.log("one");
-//     return function () {
-//         console.log("two");
-//         return function () {
-//             console.log("two");
-//             return function (target: constructor) {
-//                 console.log(target)
-//             }
-//         }
-//     }
-// }
+// printUserProperty(u, "age")
 
-// @c1()()()
-// class C {
 
-// }
-
-function d(target: any, key: string) {
+interface User {
+    loginId: string
+    loginpwd: string
+    age: number
 }
 
-function enmumerable(target: any, key: string, descriptor: PropertyDescriptor) {
-    console.log(descriptor);
+// type Obj = {
+//     [p in keyof User]: string
+// }
+
+// type Obj = {
+//     [p in keyof User]: User[p]
+// }
+
+type Obj = {
+    readonly [p in keyof User]: User[p]
 }
 
-class D {
-    @d
-    prop1: string
+const u:Obj = {
+    loginId: "adsf",
+    loginpwd: "sdf",
+    age: 18
+}
 
-    @d
-    prop2: string
-
-    @enmumerable
-    method1() {
-
-    }
+const u1:Readonly<User> = {
+    loginId: "adsf",
+    loginpwd: "sdf",
+    age: 18
 }
