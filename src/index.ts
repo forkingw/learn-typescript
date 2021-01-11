@@ -1,4 +1,16 @@
-import _ from "lodash";
-// const _ = require("lodash")
+// let name: string | undefined = undefined;
 
-const newArr = _.chunk([3,4,5,6], 2);
+// function add ():void {}
+
+// let s: "A";
+
+type Gender = "男" | "女"
+type User = {
+  name: string,
+  sex: Gender,
+  age: number
+}
+
+function getUsers(g:Gender): User[] {
+  return []
+}
